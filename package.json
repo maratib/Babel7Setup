@@ -1,0 +1,43 @@
+{
+  "name": "babeles7setup",
+  "version": "1.0.0",
+  "description": "Babel ES7 Setup for quick start",
+  "author": "Maratib Ali Khan",
+  "license": "ISC",
+  "main": "index.js",
+  "scripts": {
+    "start": "watchify src/main.js -d -o dist/bundle.js -v [ babelify --presets ['@babel/preset-env'] ]",
+    "build": "browserify src/main.js -t [ babelify --presets ['@babel/preset-env'] ] | uglifyjs -mco dist/bundle.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "babeles7setup"
+  },
+  "keywords": [
+    "Babel",
+    "ES7",
+    "Async",
+    "Await"
+  ],
+  "browserify": {
+    "transform": [
+      [
+        "babelify",
+        {
+          "presets": [
+            "@babel/preset-env"
+          ]
+        }
+      ]
+    ]
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.8.4",
+    "@babel/preset-env": "^7.8.4",
+    "babelify": "^10.0.0",
+    "uglify-js": "^3.7.7",
+    "watchify": "^3.11.1"
+  }
+}
